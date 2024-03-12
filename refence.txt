@@ -1,0 +1,50 @@
+https://editor.p5js.org/codingtrain/sketches/Z53a719cQ
+
+https://editor.p5js.org/codingtrain/sketches/_R7RgtGfA
+
+https://p5js.org/reference/#/p5/lerp
+
+https://www.youtube.com/watch?v=enNfb6p3j_g
+
+https://www.youtube.com/watch?v=2HvH9cmHbG4 
+
+ANIMATION:
+https://en.wikipedia.org/wiki/B%C3%A9zier_curve#Constructing_B.C3.A9zier_curves
+https://www.jasondavies.com/animated-bezier/
+
+Color reference : https://www.youtube.com/watch?v=jvPPXbo87ds&t=151s 
+Color Scheme
+Background  : #1E1E1E 
+Red         : #FE1054    
+Blue        : #32BBF9
+Green       : #26F8B5
+
+FIGMA
+https://www.figma.com/file/EMhRPBSnDuqnedpYmyYRWP/Untitled?type=design&node-id=0-1&mode=design&t=D3v8SuJCQRqcv7BR-0
+
+
+TAILWIND COMPILE:
+npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/templates/**/*.html",
+    "./src/static/src/**/*.js"
+  ],
+  theme: {
+    extend: {
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'bg1': '#1E1E1E',
+        'bright-red1': '#FE1054',
+        'bright-red2': '#b81846',
+        'bright-blue': '#32BBF9',
+        'bright-green': '#26F8B5',
+      },
+    },
+  },
+  plugins: [],
+}

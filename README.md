@@ -4,19 +4,19 @@
 
 <br />
 <div align="center">
-  <h1 align="center">PROJECT NAME</h1>
+  <h1 align="center">Tucil 2 - Stima</h1>
 
   <p align="center">
-    <h3> Application Name {optional}</h3>
-    <h4> DESCRIPTION</h4>
+    <h3> Building Bézier Curves</h3>
+    <h4> Divide and Conquer based Midpoint Algorithm</h4>
     <br/>
     <!-- IMAGE OR LOGO -->
     <!-- <img src="" alt="Project Logo // Team Picture // etc">
     <br/>
     <br/> -->
-    <a href="#">Report Bug</a>
+    <a href="https://github.com/NoHaitch/Tucil2_13522078_13522091/issues">Report Bug</a>
     ·
-    <a href="#">Request Feature</a>
+    <a href="https://github.com/NoHaitch/Tucil2_13522078_13522091/issues">Request Feature</a>
 <br>
 <br>
 
@@ -29,34 +29,20 @@
 <div align="center" id="contributor">
   <strong>
     <h3>Made By:</h3>
-    <h3>Raden Francisco Trianto Bratadiningrat</h3>
-    <!-- OPTIONAL TABLE FOR MULTIPLE PEOPLE -->
-    <!-- <table align="center">
+    <table align="center">
       <tr>
-        <td>ID</td>
+        <td>NIM</td>
         <td>Name</td>
       </tr>
       <tr>
-        <td>ID 1</td>
-        <td>FULL NAME Person 1</td>
+        <td>13522078</td>
+        <td>Venantius Sean Ardi Nugroho</td>
       </tr>
       <tr>
-        <td>ID 2</td>
-        <td>FULL NAME Person 2</td>
+        <td>13522091</td>
+        <td>Raden Francisco Trianto Bratadiningrat</td>
       </tr>
-      <tr>
-        <td>ID 3</td>
-        <td>FULL NAME Person 3</td>
-      </tr>
-      <tr>
-        <td>ID 4</td>
-        <td>FULL NAME Person 4</td>
-      </tr>
-      <tr>
-        <td>ID 5</td>
-        <td>FULL NAME Person 5</td>
-      </tr>
-    </table> -->
+    </table>
   </strong>
   <br>
 </div>
@@ -145,7 +131,7 @@ _How to install and use your project_
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/NoHaitch/Repository_Template
+   git clone https://github.com/NoHaitch/Tucil2_13522078_13522091
    ```
 2. Change the content
 
@@ -196,9 +182,6 @@ this feature does Z
 
 If you want to contribute or further develop the program, please fork this repository using the branch feature.  
 Pull Request is **permited and warmly welcomed**
-<!-- In bahasa Indonesia: Jika Anda ingin berkontribusi atau melanjutkan perkembangan program, silahkan fork repository ini dan gunakan branch fitur.  
-
-Permintaan Pull __sangat diperbolehkan dan diterima dengan hangat__. -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -212,8 +195,8 @@ The code in this project is licensed under MIT license.
 
 
 <!-- SPECIAL THANKS AND/OR CREDITS -->
-## Special Thanks
-- [Best-README-Template](https://github.com/othneildrew/Best-README-Template) by othneildrew
+<!-- ## Special Thanks
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template) by othneildrew -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -222,6 +205,6 @@ The code in this project is licensed under MIT license.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[issues-url]: https://github.com/NoHaitch/Repository_Template/issues
+[issues-url]: https://github.com/NoHaitch/Tucil2_13522078_13522091/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/NoHaitch/Repository_Template/blob/main/LICENSE
+[license-url]: https://github.com/NoHaitch/Tucil2_13522078_13522091/blob/main/LICENSE

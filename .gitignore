@@ -7,3 +7,5 @@
 # build.o 
 # path/to/file.txt
 # directory/temp/
+
+__pycache__

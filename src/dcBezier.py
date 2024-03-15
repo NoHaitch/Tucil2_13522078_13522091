@@ -4,8 +4,9 @@ from utils import *
 #dc = divide and conquer
 #sp = start point, mp : middle point, ep = end point, ip = inner point
 def dcBezier(sp: Point, mp: Point, ep:Point,desiredIteration : int):
-    result = []
+    result = [sp]
     dcBuilder(sp,mp,ep,result,0,desiredIteration)
+    result.append(ep)
     return result
 
 
@@ -21,7 +22,7 @@ def dcBuilder(sp:Point,ip:Point,ep:Point,container:list,counter:int, desiredIter
 
 #main ceritanya
 p1 = Point(0,0)
-p2 = Point(4,10)
+p2 = Point(2,10)
 p3 = Point(8,0)
 test = dcBezier(p1,p2,p3,5)
 printList(test)

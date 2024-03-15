@@ -1,6 +1,9 @@
-import tkinter as tk
+from util import *
+from chart import generate_chart
+from menu import create_input_menu
 
-def build_bezier_curve():
+def build_bezier_curve(entry_point0_x, entry_point0_y, entry_point1_x, entry_point1_y,
+                       entry_point2_x, entry_point2_y, entry_iteration):
     # Retrieve input values
     point0_x = float(entry_point0_x.get())
     point0_y = float(entry_point0_y.get())
@@ -10,6 +13,9 @@ def build_bezier_curve():
     point2_y = float(entry_point2_y.get())
     iteration = int(entry_iteration.get())
     
+    # Store the points
+    points : list[Point] = [(point0_x, point0_y), (point1_x, point1_y), (point2_x, point2_y)]
+
     # Build your Bezier curve here using the input values
     print("Bezier curve built with the following points:")
     print(f"Point 0: ({point0_x}, {point0_y})")
@@ -17,7 +23,12 @@ def build_bezier_curve():
     print(f"Point 2: ({point2_x}, {point2_y})")
     print(f"Iteration: {iteration}")
 
-# ========== Window initialization ==========
+    # Generate line chart
+    generate_chart(points)
+
+def quit_window():
+    root.quit()  # Stops the main loop
+    root.destroy()  # Closes the Tkinter window
 
 # Create main window
 root = tk.Tk()
@@ -36,49 +47,19 @@ root.geometry('%dx%d+%d+%d' % (window_width, window_height, x_coordinate, y_coor
 
 font_family = "Courier New"
 
-# Title
-title_label = tk.Label(root, text="Bezier Curve Builder", font=(font_family, 20, "bold"))
-title_label.pack(pady=10)
-
-# Sub-title
-subtitle_label = tk.Label(root, text="made by Sean and Francisco", font=(font_family, 14))
-subtitle_label.pack()
-
-# Point Inputs
-point_frame = tk.Frame(root)
-point_frame.pack(pady=10)
-
-point0_label = tk.Label(point_frame, text="Point 0:", font=(font_family, 14))
-point0_label.grid(row=0, column=0, padx=5, pady=2, sticky="e")
-entry_point0_x = tk.Entry(point_frame, width=5, font=(font_family, 14))
-entry_point0_x.grid(row=0, column=1, padx=5, pady=2)
-entry_point0_y = tk.Entry(point_frame, width=5, font=(font_family, 14))
-entry_point0_y.grid(row=0, column=2, padx=5, pady=2)
-
-point1_label = tk.Label(point_frame, text="Point 1:", font=(font_family, 14))
-point1_label.grid(row=1, column=0, padx=5, pady=2, sticky="e")
-entry_point1_x = tk.Entry(point_frame, width=5, font=(font_family, 14))
-entry_point1_x.grid(row=1, column=1, padx=5, pady=2)
-entry_point1_y = tk.Entry(point_frame, width=5, font=(font_family, 14))
-entry_point1_y.grid(row=1, column=2, padx=5, pady=2)
-
-point2_label = tk.Label(point_frame, text="Point 2:", font=(font_family, 14))
-point2_label.grid(row=2, column=0, padx=5, pady=2, sticky="e")
-entry_point2_x = tk.Entry(point_frame, width=5, font=(font_family, 14))
-entry_point2_x.grid(row=2, column=1, padx=5, pady=2)
-entry_point2_y = tk.Entry(point_frame, width=5, font=(font_family, 14))
-entry_point2_y.grid(row=2, column=2, padx=5, pady=2)
-
-# Iteration Input
-iteration_label = tk.Label(root, text="Iteration (>= 1):", font=(font_family, 14))
-iteration_label.pack()
-
-entry_iteration = tk.Entry(root, width=10, font=(font_family, 14))
-entry_iteration.pack()
+# Create input menu
+entry_point0_x, entry_point0_y, entry_point1_x, entry_point1_y, entry_point2_x, entry_point2_y, entry_iteration = create_input_menu(root, build_bezier_curve, quit_window, font_family)
 
 # Button to build Bezier curve
-build_button = tk.Button(root, text="Build Bezier Curve", command=build_bezier_curve, font=(font_family, 16, "bold"))
+build_button = tk.Button(root, text="Build Bezier Curve", command=lambda: build_bezier_curve(entry_point0_x, entry_point0_y, entry_point1_x, entry_point1_y, entry_point2_x, entry_point2_y, entry_iteration), font=(font_family, 16, "bold"))
 build_button.pack(pady=10)
+
+# Add a quit button
+quit_button = tk.Button(master=root, text="Quit", command=quit_window, font=(font_family, 14))
+quit_button.pack(side=tk.BOTTOM)
+
+# Bind the window close event to the quit function
+root.protocol("WM_DELETE_WINDOW", quit_window)
 
 # Start main loop
 root.mainloop()

@@ -1,5 +1,7 @@
 from classes import *
 from utils import *
+from bfBezier import bfBezier
+
 
 #dc = divide and conquer
 #sp = start point, mp : middle point, ep = end point, ip = inner point
@@ -23,6 +25,10 @@ def dcBuilder(sp:Point,ip:Point,ep:Point,container:list,counter:int, desiredIter
 #main ceritanya
 p1 = Point(0,0)
 p2 = Point(2,10)
-p3 = Point(8,0)
-test = dcBezier(p1,p2,p3,5)
-printList(test)
+p3 = Point(8,5)
+
+bf = bfBezier(p1,p2,p3,5)
+dc = dcBezier(p1,p2,p3,5)
+
+for i in range(len(bf)):
+    print(bf[i] == dc[i]);

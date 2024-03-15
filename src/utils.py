@@ -6,3 +6,11 @@ def midPoint(p1:Point,p2:Point) -> Point:
 def printList(lis : list):
     for i in lis:
         print(i)
+
+#used to calculate how many points in bfBezier
+def pointCalculator(n: int) -> int:
+    if(n==1):
+        return 3
+    else:
+        return (pointCalculator(n-1)*2)-1
+    

@@ -66,9 +66,8 @@
         <details>
           <summary><a href="#features">Features</a></summary>
           <ol>
-            <li><a href="#1-feature-x">Features - 1</a></li>
-            <li><a href="#2-feature-y">Features - 2</a></li>
-            <li><a href="#3-feature-z">Features - 3</a></li>
+            <li><a href="#1-bezier-curve-using-brute-force-algorithm">Features - 1</a></li>
+            <li><a href="#2-bezier-curve-using-divide-and-conquer-algorithm">Features - 2</a></li>
           <ol>
         </details>
         </li>
@@ -76,30 +75,23 @@
     </li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#special-thanks">Special Thanks</a></li>
   </ol>
 </details>
 
 ## External Links
 
-- [Link A](https://example.com)
-- [Link B](https://example.com)
-- [Link C](https://example.com)
+- [Spesification](https://docs.google.com/document/d/161qTQR5PzjQUIsoLO00A0Rp1dvsahrXY2Dk-fSmJl2o/edit)
+- [Teams](https://docs.google.com/spreadsheets/d/1l0N4GmLJvbCMuhGsU8czeN79HCFo6wrdrv2hDVWERO4/edit#gid=0)
+- [Q & A](https://docs.google.com/spreadsheets/d/1egeULRNv3ZrCrRexrbi7G4GkKwi_9KGasFIPAnhODfw/edit)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-General Explanation about the project, Why you made this, What does it do exactly.  
+A Program to Build Bezier Curve using divide and conquer based midpoint algorithm. Alternatively, the program can also use a brute force algorithm to make the bezier curve. 
 
-<!-- OPTIONAL LINK OR REFERENCE -->
-<!-- <p align="center">
-You can explore more on this link ... 
-<br>
-<a href="https://example.com"> <Strong>THIS LINK</Strong>
-</a>
-</p> -->
+This program is made to compare the performance of brute force versus the divide-and-conquer algorithm to deepen our understanding of the divide-and-conquer algorithm. It's also use as a Tugas Kecil(small task) 2 IF2211 Strategi Algoritma 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -110,18 +102,22 @@ You can explore more on this link ...
 ### Prerequisites
 
 Project dependencies  
-example :  
 
-* Make 
-  ```sh
-  # in Linux
-  sudo apt install make
-  ```
-* Python
-  ```sh
-  # in Linux
-  sudo apt install python3
-  ```
+
+* Python 3.12.2
+  - For windows    
+     https://www.python.org/downloads/  
+
+  - For Linux
+    ```sh
+    sudo apt install python3
+    ```
+
+* Python Libraries
+  - Matplotlib 3.8.3  
+    ```sh
+    pip install matplotlib
+    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -133,7 +129,12 @@ _How to install and use your project_
    ```sh
    git clone https://github.com/NoHaitch/Tucil2_13522078_13522091
    ```
-2. Change the content
+2. Run the program
+   ```sh
+   python main.py
+   # or
+   python3 main.py
+   ```
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -155,24 +156,10 @@ example:
 <!-- FEATURES -->
 ## Features
 
-### 1. Feature X
+### 1. Bezier Curve using Brute Force Algorithm
 
-this feature does X
 
-### 2. Feature Y
-
-this feature does Y  
-sub-features:
-   1. function 1
-   2. function 2
-   3. function 3
-
-### 3. Feature Z
-
-this feature does Z
-- `A`: print A.  
-- `B`: print B.  
-- `C`: print C.
+### 2. Bezier Curve using Divide and Conquer Algorithm
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

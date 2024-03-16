@@ -1,5 +1,4 @@
 from utils import *
-from bfBezier import bfBezier
 
 
 #dc = divide and conquer

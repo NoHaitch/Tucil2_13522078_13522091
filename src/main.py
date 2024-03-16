@@ -2,7 +2,8 @@ from utils import *
 from style import *
 from chart import generate_chart
 from menu import create_input_menu
-from bfBezier import bfBezier3Point
+from bfBezier import bfBezier
+from dcBezier import dcBezier
 
 def build_bezier_curve(points, iteration, use_divide_conquer):
     # Print input points for debugging
@@ -26,10 +27,10 @@ def build_bezier_curve(points, iteration, use_divide_conquer):
     if use_divide_conquer:
         pass
         # Use Divide Conquer algorithm
-        # bf_bezier_points = dcBezier3Point(control_points[0], control_points[1], control_points[2], int(iteration))
+        bf_bezier_points = dcBezier(control_points[0], control_points[1], control_points[2], int(iteration))
     else:
         # Use Brute Force algorithm
-        bf_bezier_points = bfBezier3Point(control_points[0], control_points[1], control_points[2], int(iteration))
+        bf_bezier_points = bfBezier(control_points[0], control_points[1], control_points[2], int(iteration))
 
     # Build your Bezier curve here using the input values
     print("Bezier curve built with the following points:")

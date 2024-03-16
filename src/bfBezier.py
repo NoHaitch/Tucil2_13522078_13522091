@@ -1,6 +1,6 @@
 from utils import *
 
-def bfBezier3Point(sp: Point, mp: Point, ep: Point, desiredIteration: int):
+def bfBezier(sp: Point, mp: Point, ep: Point, desiredIteration: int):
     nPoint = pointCalculator(desiredIteration)
     tVals = [i/(nPoint - 1)for i in range(nPoint)]
     result = []

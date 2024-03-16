@@ -1,4 +1,3 @@
-from classes import *
 from utils import *
 from bfBezier import bfBezier
 

@@ -1,47 +1,47 @@
 import tkinter as tk
+from style import *
 
-def create_input_menu(root, build_bezier_curve, quit_window, font_family):
+num_points = 3  # Default to 3 points, can be modified as needed
+
+def create_input_menu(root) -> tk.Entry:
     """
     Creates the input menu for Bezier Curve Builder.
     """
     # Title
-    title_label = tk.Label(root, text="Bezier Curve Builder", font=(font_family, 20, "bold"))
+    title_label = tk.Label(root, text="Bezier Curve Builder", font=(font_family, font_size_title, "bold"))
     title_label.pack(pady=10)
 
     # Sub-title
-    subtitle_label = tk.Label(root, text="made by Sean and Francisco", font=(font_family, 14))
+    subtitle_label = tk.Label(root, text="made by Sean and Francisco", font=(font_family, font_size_normal))
     subtitle_label.pack()
+
+    # Function to create input fields for a single point
+    def create_point_input(frame, index):
+        point_label = tk.Label(frame, text=f"Point {index}:", font=(font_family, font_size_normal))
+        point_label.grid(row=index, column=0, padx=5, pady=2, sticky="e")
+        entry_point_x = tk.Entry(frame, width=5, font=(font_family, font_size_normal))
+        entry_point_x.grid(row=index, column=1, padx=5, pady=2)
+        entry_point_y = tk.Entry(frame, width=5, font=(font_family, font_size_normal))
+        entry_point_y.grid(row=index, column=2, padx=5, pady=2)
+        return entry_point_x, entry_point_y
 
     # Point Inputs
     point_frame = tk.Frame(root)
     point_frame.pack(pady=10)
 
-    point0_label = tk.Label(point_frame, text="Point 0:", font=(font_family, 14))
-    point0_label.grid(row=0, column=0, padx=5, pady=2, sticky="e")
-    entry_point0_x = tk.Entry(point_frame, width=5, font=(font_family, 14))
-    entry_point0_x.grid(row=0, column=1, padx=5, pady=2)
-    entry_point0_y = tk.Entry(point_frame, width=5, font=(font_family, 14))
-    entry_point0_y.grid(row=0, column=2, padx=5, pady=2)
+    point_entries = []
 
-    point1_label = tk.Label(point_frame, text="Point 1:", font=(font_family, 14))
-    point1_label.grid(row=1, column=0, padx=5, pady=2, sticky="e")
-    entry_point1_x = tk.Entry(point_frame, width=5, font=(font_family, 14))
-    entry_point1_x.grid(row=1, column=1, padx=5, pady=2)
-    entry_point1_y = tk.Entry(point_frame, width=5, font=(font_family, 14))
-    entry_point1_y.grid(row=1, column=2, padx=5, pady=2)
-
-    point2_label = tk.Label(point_frame, text="Point 2:", font=(font_family, 14))
-    point2_label.grid(row=2, column=0, padx=5, pady=2, sticky="e")
-    entry_point2_x = tk.Entry(point_frame, width=5, font=(font_family, 14))
-    entry_point2_x.grid(row=2, column=1, padx=5, pady=2)
-    entry_point2_y = tk.Entry(point_frame, width=5, font=(font_family, 14))
-    entry_point2_y.grid(row=2, column=2, padx=5, pady=2)
+    for i in range(num_points):
+        point_entries.append(create_point_input(point_frame, i))
 
     # Iteration Input
-    iteration_label = tk.Label(root, text="Iteration :", font=(font_family, 14))
+    iteration_label = tk.Label(root, text="Iteration :", font=(font_family, font_size_normal))
     iteration_label.pack()
 
-    entry_iteration = tk.Entry(root, width=10, font=(font_family, 14))
+    entry_iteration = tk.Entry(root, width=10, font=(font_family, font_size_normal))
     entry_iteration.pack()
 
-    return entry_point0_x, entry_point0_y, entry_point1_x, entry_point1_y, entry_point2_x, entry_point2_y, entry_iteration
+    def get_points():
+        return [(entry_point_x.get(), entry_point_y.get()) for entry_point_x, entry_point_y in point_entries]
+
+    return entry_iteration, get_points

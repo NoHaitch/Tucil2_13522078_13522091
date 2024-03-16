@@ -1,6 +1,7 @@
-from util import *
+from utils import *
+from style import *
 
-def generate_chart(control_points: list[Point]) -> None:
+def generate_chart(control_points: list[Point], bezier_points: list[Point]) -> None:
     # Create the main window
     root = tk.Tk()
     root.title("Bezier Curve")
@@ -8,14 +9,18 @@ def generate_chart(control_points: list[Point]) -> None:
     # Create the Matplotlib figure
     fig, ax = plt.subplots()
 
-    x = [point[0] for point in control_points]
-    y = [point[1] for point in control_points]
+    control_points_x = [point.x for point in control_points]
+    control_points_y = [point.y for point in control_points]
+    bezier_points_x = [point.x for point in bezier_points]
+    bezier_points_y = [point.y for point in bezier_points]
 
-    # Plot control points with matching color and thicker border
-    ax.scatter(x, y, s=40, edgecolors='#C34468', facecolors='#C34468', linewidth=2)
+    # ===== Control Points =====
+    ax.scatter(control_points_x, control_points_y, s=40, edgecolors=color_control_point, facecolors=color_control_point, linewidth=2)
+    ax.plot(control_points_x, control_points_y, color=color_control_point, linewidth=1)
 
-    # Connect the points with a colored line
-    ax.plot(x, y, color='#C34468', linewidth=1)
+    # ===== Bezier Points =====
+    ax.scatter(bezier_points_x, bezier_points_y, s=40, edgecolors=color_bezier_point, facecolors=color_bezier_point, linewidth=2)
+    ax.plot(bezier_points_x, bezier_points_y, color=color_bezier_point, linewidth=1)
 
     # Set labels and title
     ax.set_xlabel("X-axis")
@@ -23,8 +28,8 @@ def generate_chart(control_points: list[Point]) -> None:
     ax.set_title("Bezier Curve")
 
     # Add some empty space around the chart
-    ax.set_xlim(min(x) - 5, max(x) + 5)
-    ax.set_ylim(min(y) - 5, max(y) + 5)
+    ax.set_xlim(min(control_points_x) - empty_space_chart, max(control_points_x) + empty_space_chart)
+    ax.set_ylim(min(control_points_y) - empty_space_chart, max(control_points_y) + empty_space_chart)
 
     # Embed the plot into the Tkinter window
     canvas = FigureCanvasTkAgg(fig, master=root)

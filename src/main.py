@@ -1,30 +1,46 @@
-from util import *
+from utils import *
+from style import *
 from chart import generate_chart
 from menu import create_input_menu
+from bfBezier import bfBezier3Point
 
-def build_bezier_curve(entry_point0_x, entry_point0_y, entry_point1_x, entry_point1_y,
-                       entry_point2_x, entry_point2_y, entry_iteration):
-    # Retrieve input values
-    point0_x = float(entry_point0_x.get())
-    point0_y = float(entry_point0_y.get())
-    point1_x = float(entry_point1_x.get())
-    point1_y = float(entry_point1_y.get())
-    point2_x = float(entry_point2_x.get())
-    point2_y = float(entry_point2_y.get())
-    iteration = int(entry_iteration.get())
-    
-    # Store the points
-    points : list[Point] = [(point0_x, point0_y), (point1_x, point1_y), (point2_x, point2_y)]
+def build_bezier_curve(points, iteration, use_divide_conquer):
+    # Print input points for debugging
+    print("Input points:", points)
+    print("Iteration:", iteration)
+
+    # Validate if the iteration is not empty
+    if iteration == '':
+        tk.messagebox.showerror("Error", "Please enter the iteration value.")
+        return
+
+    # Validate if any of the entry points are empty
+    for point in points:
+        if '' in point:
+            tk.messagebox.showerror("Error", "Please enter both x and y coordinates for all points.")
+            return
+
+    # Convert points to Point objects
+    control_points = [Point(float(x), float(y)) for x, y in points]
+
+    if use_divide_conquer:
+        pass
+        # Use Divide Conquer algorithm
+        # bf_bezier_points = dcBezier3Point(control_points[0], control_points[1], control_points[2], int(iteration))
+    else:
+        # Use Brute Force algorithm
+        bf_bezier_points = bfBezier3Point(control_points[0], control_points[1], control_points[2], int(iteration))
 
     # Build your Bezier curve here using the input values
     print("Bezier curve built with the following points:")
-    print(f"Point 0: ({point0_x}, {point0_y})")
-    print(f"Point 1: ({point1_x}, {point1_y})")
-    print(f"Point 2: ({point2_x}, {point2_y})")
     print(f"Iteration: {iteration}")
+    for i, point in enumerate(control_points):
+        print(f"Control Points {i}: ({point.x}, {point.y})")
+    for i, point in enumerate(bf_bezier_points):
+        print(f"Bezier Points {i}: ({point.x}, {point.y})")
 
     # Generate line chart
-    generate_chart(points)
+    generate_chart(control_points, bf_bezier_points)
 
 def quit_window():
     root.quit()  # Stops the main loop
@@ -35,8 +51,6 @@ root = tk.Tk()
 root.title("Bezier Curve Builder")
 
 # Window Size 
-window_width = 400
-window_height = 300
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 x_coordinate = (screen_width / 2) - (window_width / 2)
@@ -45,17 +59,27 @@ root.geometry('%dx%d+%d+%d' % (window_width, window_height, x_coordinate, y_coor
 
 # ========== Window Content ==========
 
-font_family = "Courier New"
-
 # Create input menu
-entry_point0_x, entry_point0_y, entry_point1_x, entry_point1_y, entry_point2_x, entry_point2_y, entry_iteration = create_input_menu(root, build_bezier_curve, quit_window, font_family)
+entry_iteration, get_points = create_input_menu(root)
 
-# Button to build Bezier curve
-build_button = tk.Button(root, text="Build Bezier Curve", command=lambda: build_bezier_curve(entry_point0_x, entry_point0_y, entry_point1_x, entry_point1_y, entry_point2_x, entry_point2_y, entry_iteration), font=(font_family, 16, "bold"))
-build_button.pack(pady=10)
+# Label above the buttons
+label = tk.Label(root, text="Choose Algorithm:", font=(font_family, font_size_normal))
+label.pack(pady=10)
+
+# Frame to hold buttons
+button_frame = tk.Frame(root)
+button_frame.pack()
+
+# Brute Force button
+bf_button = tk.Button(button_frame, text="Brute Force", command=lambda: build_bezier_curve(get_points(), entry_iteration.get(), False), font=(font_family, font_size_normal, "bold"))
+bf_button.grid(row=0, column=0, padx=5)
+
+# Divide Conquer button
+dc_button = tk.Button(button_frame, text="Divide Conquer", command=lambda: build_bezier_curve(get_points(), entry_iteration.get(), True), font=(font_family, font_size_normal, "bold"))
+dc_button.grid(row=0, column=1, padx=5)
 
 # Add a quit button
-quit_button = tk.Button(master=root, text="Quit", command=quit_window, font=(font_family, 14))
+quit_button = tk.Button(master=root, text="Quit", command=quit_window, font=(font_family, font_size_normal))
 quit_button.pack(side=tk.BOTTOM)
 
 # Bind the window close event to the quit function

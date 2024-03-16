@@ -10,10 +10,6 @@
     <h3> Building Bézier Curves</h3>
     <h4> Divide and Conquer based Midpoint Algorithm</h4>
     <br/>
-    <!-- IMAGE OR LOGO -->
-    <!-- <img src="" alt="Project Logo // Team Picture // etc">
-    <br/>
-    <br/> -->
     <a href="https://github.com/NoHaitch/Tucil2_13522078_13522091/issues">Report Bug</a>
     ·
     <a href="https://github.com/NoHaitch/Tucil2_13522078_13522091/issues">Request Feature</a>
@@ -66,6 +62,8 @@
         <details>
           <summary><a href="#features">Features</a></summary>
           <ol>
+            <li><a href="#1-bezier-curve-using-brute-force-algorithm">Brute Force Algorithm</a></li>
+            <li><a href="#2-bezier-curve-using-divide-and-conquer-algorithm">Divide And Conquer</a></li>
             <li><a href="#1-feature-x">Features - 1</a></li>
             <li><a href="#2-feature-y">Features - 2</a></li>
             <li><a href="#3-feature-z">Features - 3</a></li>
@@ -76,6 +74,7 @@
     </li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
+    <li><a href="#special-thanks">Special Thanks</a></li>
     <li><a href="#special-thanks">Special Thanks</a></li>
   </ol>
 </details>
@@ -195,8 +194,8 @@ The code in this project is licensed under MIT license.
 
 
 <!-- SPECIAL THANKS AND/OR CREDITS -->
-<!-- ## Special Thanks
-- [Best-README-Template](https://github.com/othneildrew/Best-README-Template) by othneildrew -->
+## Special Thanks
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template) by othneildrew
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

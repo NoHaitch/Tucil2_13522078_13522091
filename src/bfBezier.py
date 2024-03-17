@@ -10,3 +10,10 @@ def bfBezier(sp: Point, mp: Point, ep: Point, desiredIteration: int):
         newPoint = Point(newX,newY)
         result.append(newPoint)
     return result
+
+pointTest = [
+    Point(0, 0),
+    Point(1, 3),
+    Point(4, 0),
+]
+printList(bfBezier(pointTest[0],pointTest[1],pointTest[2],5))

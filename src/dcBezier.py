@@ -1,22 +1,44 @@
 from utils import *
-from bfBezier import bfBezier
 
-
-#dc = divide and conquer
-#sp = start point, mp : middle point, ep = end point, ip = inner point
-def dcBezier(sp: Point, mp: Point, ep:Point, desiredIteration : int):
-    result = [sp]
-    dcBuilder(sp,mp,ep,result,0,desiredIteration)
-    result.append(ep)
+# Build Bezier Curve using Divide and Conquer algorithm
+def dcBezier(control_points: list[Point], desire_iteration: int, num_of_CP: int) -> list[list[Point]]:
+    result : list[list[Point]] = []
+    for iteration in range(1, desire_iteration + 1):
+        result.append(intermediary_Bezier(control_points, iteration, num_of_CP))
     return result
 
+def intermediary_Bezier(control_points: list[Point], desire_iteration: int, num_of_CP: int) -> list[Point]:
+    result : list[Point] = [control_points[0]]
+    dcBuilder(control_points, result, 0, desire_iteration, num_of_CP)
+    result.append(control_points[-1])
+    return result
 
-def dcBuilder(sp:Point,ip:Point,ep:Point,container:list,counter:int, desiredIteration : int):
-    if(counter < desiredIteration):
-        mp1 = midPoint(sp,ip)
-        mp2 = midPoint(ip,ep)
-        mp3 = midPoint(mp1,mp2)
+def dcBuilder(control_points: list[Point], container: list, counter: int, desire_iteration: int, num_of_CP: int) -> None:
+    if counter < desire_iteration:
+        useful_midpoints = [control_points[0], control_points[-1]]
+        midpoint = make_mid_point(control_points, num_of_CP, useful_midpoints)
+
+        quicksort(useful_midpoints)
+        leftPoints, rightPoints = split_array(useful_midpoints, midpoint)
+        leftPoints.append(midpoint)
         counter += 1
-        dcBuilder(sp,mp1,mp3,container,counter,desiredIteration)
-        container.append(mp3)
-        dcBuilder(mp3,mp2,ep,container,counter,desiredIteration)
+
+        dcBuilder(leftPoints, container, counter, desire_iteration, num_of_CP)
+        container.append(midpoint)
+        dcBuilder(rightPoints, container, counter, desire_iteration, num_of_CP)
+
+def make_mid_point(control_points: list[Point], num_of_CP: int, useful_midpoints: list[Point]) -> Point:
+    if num_of_CP == 2:
+        real_midpoint = mid_point(control_points[0], control_points[1])
+        useful_midpoints.append(real_midpoint)
+        return real_midpoint
+    
+    else:
+        points_between = []
+        for i in range(num_of_CP - 1):
+            points_between.append(mid_point(control_points[i], control_points[i + 1]))
+
+        useful_midpoints.append(points_between[0])
+        useful_midpoints.append(points_between[-1])
+        num_of_CP -= 1
+        return make_mid_point(points_between, num_of_CP, useful_midpoints)

@@ -2,6 +2,12 @@ from utils import *
 
 
 def dcBezier(controlPoints : list[Point], desiredIteration : int,numofCP : int):
+    result=[]
+    for i in range(1,desiredIteration+1):
+        result.append(intermediaryBezier(controlPoints,i,numofCP))
+    return result
+
+def intermediaryBezier(controlPoints : list[Point], desiredIteration : int,numofCP : int):
     result = [controlPoints[0]]
     dcBuilder(controlPoints,result,0,desiredIteration,numofCP)
     result.append(controlPoints[-1])
@@ -41,4 +47,7 @@ pointTest = [
     Point(4, 0),
     Point(7,6)
 ]
-printList(dcBezier(pointTest,5,4))
+result = dcBezier(pointTest,5,4)
+for i in range(len(result)):
+    printList(result[i])
+    print("")

@@ -1,7 +1,6 @@
-Points : 5
-Point 0 : -50, -50
-Point 1 : -15, -20
-Point 2 : 0, 30
-Point 3 : 25, 50
-Point 4 : 50, 0
-Iteration : 8
+Points : 4
+Point 0 : -22, -5
+Point 1 : -7, 18
+Point 2 : 30, -28
+Point 3 : -16, 15
+Iteration : 5

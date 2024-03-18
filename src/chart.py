@@ -25,7 +25,7 @@ def generate_bf_chart(control_points: list[Point], bezier_points: list[Point]) -
     # Set labels and title
     ax.set_xlabel("X-axis")
     ax.set_ylabel("Y-axis")
-    ax.set_title("Bezier Curve")
+    ax.set_title("Brute Force Bezier Curve")
 
     # Add some empty space around the chart
     ax.set_xlim(min(control_points_x) - empty_space_chart, max(control_points_x) + empty_space_chart)
@@ -82,7 +82,7 @@ def generate_dc_chart(control_points: list[Point], bezier_points_list: list[list
         ax.legend()
         ax.set_xlabel("X-axis")
         ax.set_ylabel("Y-axis")
-        ax.set_title("Bezier Curve")
+        ax.set_title("Divide and Conquer Bezier Curve")
         ax.set_xlim(min(control_points_x) - empty_space_chart, max(control_points_x) + empty_space_chart)
         ax.set_ylim(min(control_points_y) - empty_space_chart, max(control_points_y) + empty_space_chart)
 

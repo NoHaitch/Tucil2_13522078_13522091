@@ -39,15 +39,3 @@ def makeMidPoint(controlPoints:list[Point],numofCP:int,usefulMidpoints:list[Poin
         usefulMidpoints.append(pointAntara[-1])
         numofCP -= 1
         return makeMidPoint(pointAntara,numofCP,usefulMidpoints)
-
-#ceritanya main
-pointTest = [
-    Point(0, 0),
-    Point(1, 3),
-    Point(4, 0),
-    Point(7,6)
-]
-result = dcBezier(pointTest,5,4)
-for i in range(len(result)):
-    printList(result[i])
-    print("")

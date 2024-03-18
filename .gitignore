@@ -1,11 +1,1 @@
-# Use for client based files, or data that is different per uses
-# Use for ignoring libary like node or other external library
-# Delete this if not used
-
-# examples
-# *.json 
-# build.o 
-# path/to/file.txt
-# directory/temp/
-
 __pycache__

@@ -125,13 +125,13 @@ def build_bezier_curve(points : list[tuple[str, str]], str_iteration : str, use_
         return
     
     if not str_iteration.isdigit():
-        messagebox.showerror("Error", "Iteration must be a non negative number.")
+        messagebox.showerror("Error", "Iteration must be a positive number.")
         return
     else:
         iteration = int(str_iteration)
     
-    if iteration < 0:
-        messagebox.showerror("Error", "Iteration must be non negative number.")
+    if iteration < 1:
+        messagebox.showerror("Error", "Iteration must be a positive number.")
         return
 
     # Convert points to Point objects

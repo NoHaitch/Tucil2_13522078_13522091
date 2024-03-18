@@ -72,7 +72,7 @@ def generate_dc_chart(control_points: list[Point], bezier_points_list: list[list
                 bezier_points_y = [point.y for point in bezier_points]
                 color = colormap(i / num_lines)  # Generate a color from the colormap
                 ax.scatter(bezier_points_x, bezier_points_y, s=bezier_circle_radius, edgecolors=color, facecolors=color, linewidth=bezier_line_width)
-                ax.plot(bezier_points_x, bezier_points_y, color=color, linewidth=bezier_line_width, label=f'Iteration-{iteration+1}')
+                ax.plot(bezier_points_x, bezier_points_y, color=color, linewidth=bezier_line_width, label=f'Iteration-{i+1}')
         else:
             color = colormap(iteration / len(bezier_points_list))
             bezier_points_x = [point.x for point in bezier_points]

@@ -1,0 +1,7 @@
+Points : 5
+Point 0 : -50, 0
+Point 1 : -25, 90
+Point 2 : 0, -50
+Point 3 : 25, 50
+Point 4 : 50, 0
+Iteration : 5

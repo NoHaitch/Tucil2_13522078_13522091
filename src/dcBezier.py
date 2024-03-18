@@ -2,7 +2,7 @@ from utils import *
 import time
 
 # Build Bezier Curve using Divide and Conquer algorithm
-def dcBezier(control_points: list[Point], desire_iteration: int, num_of_CP: int) -> [list[list[Point]],int]:
+def dcBezier(control_points: list[Point], desire_iteration: int, num_of_CP: int) -> tuple[list[list[Point]], int]:
     result : list[list[Point]] = []
     for iteration in range(1, desire_iteration + 1):
         if iteration == desire_iteration:

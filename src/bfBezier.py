@@ -2,7 +2,7 @@ from utils import *
 import time
 
 # Build Bezier Curve using Brute Force algorithm
-def bfBezier(start_point: Point, mid_point: Point, end_point: Point, desire_iteration: int) -> [list[Point],int]:
+def bfBezier(start_point: Point, mid_point: Point, end_point: Point, desire_iteration: int) -> tuple[list[Point], int]:
     start_time = time.time()
     amount_of_point = calculate_amount_of_point(desire_iteration)
     tVals : list[int] = [i / (amount_of_point - 1) for i in range(amount_of_point)]

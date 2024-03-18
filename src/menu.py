@@ -139,10 +139,10 @@ def build_bezier_curve(points : list[tuple[str, str]], str_iteration : str, use_
 
     if use_divide_conquer:
         # Use Divide Conquer algorithm
-        dc_bezier_points = dcBezier(control_points, iteration, len(control_points))
+        dc_bezier_points, time = dcBezier(control_points, iteration, len(control_points))
 
         # Generate Chart
-        generate_dc_chart(control_points, dc_bezier_points)
+        generate_dc_chart(control_points, dc_bezier_points, time)
     else:
         # Checks if the amount of points = 3
         if len(control_points) != 3:
@@ -150,10 +150,10 @@ def build_bezier_curve(points : list[tuple[str, str]], str_iteration : str, use_
             return
 
         # Use Brute Force algorithm
-        bf_bezier_points = bfBezier(control_points[0], control_points[1], control_points[2], iteration)
+        bf_bezier_points, time = bfBezier(control_points[0], control_points[1], control_points[2], iteration)
         
         # Generate Chart
-        generate_bf_chart(control_points, bf_bezier_points)
+        generate_bf_chart(control_points, bf_bezier_points, time)
 
         
     

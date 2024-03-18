@@ -4,6 +4,7 @@ from tkinter import Tk, messagebox, Entry
 
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.widgets import Slider
 
 # Class Definition
 class Point:

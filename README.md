@@ -64,9 +64,6 @@
           <ol>
             <li><a href="#1-bezier-curve-using-brute-force-algorithm">Brute Force Algorithm</a></li>
             <li><a href="#2-bezier-curve-using-divide-and-conquer-algorithm">Divide And Conquer</a></li>
-            <li><a href="#1-feature-x">Features - 1</a></li>
-            <li><a href="#2-feature-y">Features - 2</a></li>
-            <li><a href="#3-feature-z">Features - 3</a></li>
           <ol>
         </details>
         </li>
@@ -75,13 +72,14 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#special-thanks">Special Thanks</a></li>
-    <li><a href="#special-thanks">Special Thanks</a></li>
   </ol>
 </details>
 
 ## External Links
 
-- [Spesification](https://docs.google.com/document/d/161qTQR5PzjQUIsoLO00A0Rp1dvsahrXY2Dk-fSmJl2o/edit)
+Note: some links may be outdated or broken
+
+- [Spesification](https://github.com/NoHaitch/Tucil2_13522078_13522091/blob/main/doc/Spesifikasi%20Tugas%20Kecil%202%20Stima%202023_2024.pdf)
 - [Teams](https://docs.google.com/spreadsheets/d/1l0N4GmLJvbCMuhGsU8czeN79HCFo6wrdrv2hDVWERO4/edit#gid=0)
 - [Q & A](https://docs.google.com/spreadsheets/d/1egeULRNv3ZrCrRexrbi7G4GkKwi_9KGasFIPAnhODfw/edit)
 
@@ -130,7 +128,11 @@ _How to install and use your project_
    ```sh
    git clone https://github.com/NoHaitch/Tucil2_13522078_13522091
    ```
-2. Run the program
+2. Change directory to src  
+   ```sh  
+   cd src
+   ```
+3. Run the program
    ```sh
    python main.py
    # or
@@ -142,14 +144,12 @@ _How to install and use your project_
 
 <!-- INSTURCTION -->
 ## Instruction
-Instruction to run/build/etc the program  
-example: 
-
-`make build` : To build from source to binary into bin/main  
-`make all` : Run binary directly after building   
-`make clean` : Remove all build generated files  
-`make ADT.test` : Running test for ADT test file, for example ( `make time.test` )  
-`make test.all` : Running all test  
+to run the program, all you need to do is run main.py
+ ```sh
+  python main.py
+  # or
+  python3 main.py
+  ```
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -158,9 +158,12 @@ example:
 ## Features
 
 ### 1. Bezier Curve using Brute Force Algorithm
-
+Build a Bezier Curve using a Brute Force Algorithm.   
+Note: This feature is only available for 3 control points.  
 
 ### 2. Bezier Curve using Divide and Conquer Algorithm
+Build a Bezier Curve using Divide and Conquer based Midpoint Algorithm.  
+Note: matplotlib slider may break. To handle this you need to rebuild the curve.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

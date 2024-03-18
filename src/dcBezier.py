@@ -1,41 +1,44 @@
 from utils import *
 
-
-def dcBezier(controlPoints : list[Point], desiredIteration : int,numofCP : int):
-    result=[]
-    for i in range(1,desiredIteration+1):
-        result.append(intermediaryBezier(controlPoints,i,numofCP))
+# Build Bezier Curve using Divide and Conquer algorithm
+def dcBezier(control_points: list[Point], desire_iteration: int, num_of_CP: int) -> list[list[Point]]:
+    result : list[list[Point]] = []
+    for iteration in range(1, desire_iteration + 1):
+        result.append(intermediary_Bezier(control_points, iteration, num_of_CP))
     return result
 
-def intermediaryBezier(controlPoints : list[Point], desiredIteration : int,numofCP : int):
-    result = [controlPoints[0]]
-    dcBuilder(controlPoints,result,0,desiredIteration,numofCP)
-    result.append(controlPoints[-1])
+def intermediary_Bezier(control_points: list[Point], desire_iteration: int, num_of_CP: int) -> list[Point]:
+    result : list[Point] = [control_points[0]]
+    dcBuilder(control_points, result, 0, desire_iteration, num_of_CP)
+    result.append(control_points[-1])
     return result
 
+def dcBuilder(control_points: list[Point], container: list, counter: int, desire_iteration: int, num_of_CP: int) -> None:
+    if counter < desire_iteration:
+        useful_midpoints = [control_points[0], control_points[-1]]
+        midpoint = make_mid_point(control_points, num_of_CP, useful_midpoints)
 
-def dcBuilder(controlPoints:list[Point],container:list,counter:int, desiredIteration : int,numofCP:int):
-    if(counter < desiredIteration):
-        usefulMidpoints = [controlPoints[0],controlPoints[-1]]
-        midPoint = makeMidPoint(controlPoints,numofCP,usefulMidpoints)
-        quicksort(usefulMidpoints)
-        leftPoints, rightPoints = split_array(usefulMidpoints,midPoint)
-        leftPoints.append(midPoint)
+        quicksort(useful_midpoints)
+        leftPoints, rightPoints = split_array(useful_midpoints, midpoint)
+        leftPoints.append(midpoint)
         counter += 1
-        dcBuilder(leftPoints,container,counter,desiredIteration,numofCP)
-        container.append(midPoint)
-        dcBuilder(rightPoints,container,counter,desiredIteration,numofCP)
 
-def makeMidPoint(controlPoints:list[Point],numofCP:int,usefulMidpoints:list[Point]):
-    if numofCP == 2:
-        realMP = midPoint(controlPoints[0],controlPoints[1])
-        usefulMidpoints.append(realMP)
-        return realMP
+        dcBuilder(leftPoints, container, counter, desire_iteration, num_of_CP)
+        container.append(midpoint)
+        dcBuilder(rightPoints, container, counter, desire_iteration, num_of_CP)
+
+def make_mid_point(control_points: list[Point], num_of_CP: int, useful_midpoints: list[Point]) -> Point:
+    if num_of_CP == 2:
+        real_midpoint = mid_point(control_points[0], control_points[1])
+        useful_midpoints.append(real_midpoint)
+        return real_midpoint
+    
     else:
-        pointAntara = []
-        for i in range(numofCP-1):
-            pointAntara.append(midPoint(controlPoints[i],controlPoints[i+1]))
-        usefulMidpoints.append(pointAntara[0])
-        usefulMidpoints.append(pointAntara[-1])
-        numofCP -= 1
-        return makeMidPoint(pointAntara,numofCP,usefulMidpoints)
+        points_between = []
+        for i in range(num_of_CP - 1):
+            points_between.append(mid_point(control_points[i], control_points[i + 1]))
+
+        useful_midpoints.append(points_between[0])
+        useful_midpoints.append(points_between[-1])
+        num_of_CP -= 1
+        return make_mid_point(points_between, num_of_CP, useful_midpoints)
